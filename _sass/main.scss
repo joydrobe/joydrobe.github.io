@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import "colors";
+@import "vars";
+
+@mixin large {
+    @media screen and (min-width: #{$large-breakpoint}) {
+      @content;
+    }
+  }
+  
+  @mixin medium {
+    @media screen and (min-width: #{$medium-breakpoint}) and (max-width: #{$large-breakpoint}) {
+      @content;
+    }
+  }
+  
+  @mixin small {
+    @media screen and (max-width: #{$medium-breakpoint}) {
+      @content;
+    }
+  }
+
+body {
+    font-family: "Rubik", "Roboto", Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    line-height: 1.15;
+    color: $black;
+    @include large {
+        font-size: 1.5em;
+    }
+    @include medium {
+        font-size: 1.25em;
+    }
+    @include small {
+        font-size: 1.25em;
+    }
+}
+
+h1 {
+    font-family: "Rubik", "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    @include small {
+        font-size: 2em;
+    }
+}
+
+.horizontal-layout {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include small {
+        flex-direction: column;
+    }
+}
+
+.panel {
+    width: 25%;
+    height: 25vw;
+    margin: 1.5625%;
+    border-radius: 8px;
+    text-align: start;
+    display: block;
+    @include small {
+        width: 75%;
+        height: 75vw;
+    }
+}
+
+.panel-1 {
+    @extend .panel;
+    background-color: $color1;
+}
+
+.panel-2 {
+    @extend .panel;
+    background-color: $color2;
+}
+
+.panel-3 {
+    @extend .panel;
+    background-color: $color3;
+}
+
+.panel-4 {
+    @extend .panel;
+    background-color: $color4;
+}
+
+.site-footer {
+    background-color: black;
+    text-align: center;
+    height: 50vh;
+}
+
+.spacer {
+    height: 6.25vh;
+}
+
+.white-text {
+    color: $white;
+}
+
+.emphasis-text {
+    color: $color1;
+}
+
+.text-logo {
+    width: 30%;
+    @include small {
+        width: 75%;
+    }
+}
