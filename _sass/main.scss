@@ -4,21 +4,28 @@
 
 @mixin large {
     @media screen and (min-width: #{$large-breakpoint}) {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin medium {
+}
+
+@mixin medium {
     @media screen and (min-width: #{$medium-breakpoint}) and (max-width: #{$large-breakpoint}) {
-      @content;
+        @content;
     }
-  }
-  
-  @mixin small {
-    @media screen and (max-width: #{$medium-breakpoint}) {
-      @content;
+}
+
+@mixin small {
+    @media screen and (min-width: #{$small-breakpoint}) and (max-width: #{$medium-breakpoint}) {
+        @content;
     }
-  }
+}
+
+
+@mixin mobile {
+    @media screen and (max-width: #{$small-breakpoint}) {
+        @content;
+    }
+}
 
 body {
     font-family: "Rubik", "Roboto", Arial, Helvetica, sans-serif;
@@ -33,6 +40,9 @@ body {
         font-size: 1.25em;
     }
     @include small {
+        font-size: 1em;
+    }
+    @include mobile {
         font-size: 1.25em;
     }
 }
@@ -43,7 +53,7 @@ h1 {
     padding: 0;
     margin: 0;
     font-weight: normal;
-    @include small {
+    @include mobile {
         font-size: 2em;
     }
 }
@@ -54,7 +64,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    @include small {
+    @include mobile {
         flex-direction: column;
     }
 }
@@ -66,7 +76,7 @@ h1 {
     border-radius: 8px;
     text-align: start;
     display: block;
-    @include small {
+    @include mobile {
         width: 75%;
         height: 75vw;
     }
@@ -112,7 +122,7 @@ h1 {
 
 .text-logo {
     width: 30%;
-    @include small {
+    @include mobile {
         width: 75%;
     }
 }
@@ -141,7 +151,7 @@ h1 {
     ::-ms-input-placeholder { /* Microsoft Edge */
         color: $gray;
     }
-    @include small {
+    @include mobile {
         font-size: 0.75em;
     }
 }
@@ -160,7 +170,7 @@ h1 {
     &:hover {
         background-color: $color4;
     }
-    @include small {
+    @include mobile {
         font-size: 0.75em;
     }
 }
