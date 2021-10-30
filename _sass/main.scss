@@ -141,6 +141,9 @@ h1 {
     ::-ms-input-placeholder { /* Microsoft Edge */
         color: $gray;
     }
+    @include small {
+        font-size: 0.75em;
+    }
 }
 
 .email-button {
@@ -156,5 +159,8 @@ h1 {
     transition: background-color 0.2s;
     &:hover {
         background-color: $color4;
+    }
+    @include small {
+        font-size: 0.75em;
     }
 }
